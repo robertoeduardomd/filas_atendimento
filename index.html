@@ -9,20 +9,20 @@
 <body>
 
     <div class="container">
-        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-        <!-- No seu index.html, substitua o botão do cabeçalho por este: -->
-<div id="btnLoginHeader" style="background:rgb(114, 106, 2);cursor:pointer; border-radius: 30px; display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px; padding: 10px;">
+      <div class="centorg">
+<h1 >Service desk N1</h1>
+        <div id="btnLoginHeader" style="background:rgb(114, 106, 2);cursor:pointer; border-radius: 30px; display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px; padding: 10px;">
     Entrar / Login
 </div>
-    </div>
-        <h1 id="tituloFila">Fila de atendimento</h1>
+      </div>
         
-        <nav class="tabs">
-            <button onclick="mudarFila(1, 'ANEEL')">ANEEL</button>
-            <button onclick="mudarFila(2, 'ANATEL')">ANATEL</button>
-             <button id="btnAdmin" onclick="toggleAdmin()">Administrador</button>
-        </nav>
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+     
 
+    </div>
+        <h2 id="tituloFila">Fila de atendimento</h1>
+        
+      
        
         <section id="adminPanel" class="card" style="display:none; margin-bottom: 20px;">
             <h2>Cadastro de Colaborador</h2>
@@ -34,26 +34,33 @@
         </section>
 
         <div class="painel-superior">
-              <section class="card">
-            <h2>Fora da Fila</h2>
-            <div id="foraFila"></div>
-        </section>
+             
             <section class="card">
                 <h2>Na fila</h2>
                 <div id="fila"></div>
             </section>
 
-            
+        <section class="card">
+                <h2>Últimas Atualizações</h2>
+                <div id="listaHistorico"></div>
+                <button id="btnHistorico">Ver histórico completo</button>
+            </section>    
         </div>
+         <section class="card2">
+            <h2>Fora da Fila</h2>
+            <div id="foraFila"></div>
+        </section>
           <div class="acoes">
             <button id="btnFila" onclick="toggleMinhaPosicao()">Entrar na fila</button>
            
         </div>
-<section class="card">
-                <h2>Últimas Atualizações</h2>
-                <div id="listaHistorico"></div>
-                <button id="btnHistorico">Ver histórico completo</button>
-            </section>
+          <nav class="tabs">
+            <button onclick="mudarFila(1, 'ANEEL')">ANEEL</button>
+            <button onclick="mudarFila(2, 'ANATEL')">ANATEL</button>
+             <button id="btnAdmin" onclick="toggleAdmin()">Administrador</button>
+        </nav>
+
+
       
 
       

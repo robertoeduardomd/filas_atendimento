@@ -7,6 +7,8 @@ body { background: #2c2c2c; color: #F1F1F1; min-height: 100vh; padding: 20px;dis
 
 .card { background: #2A2D31; border-radius: 12px; padding: 20px; border: 1px solid #3a3a3a; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .card h2 { text-align: center; margin-bottom: 15px; font-size: 18px; }
+.card2 { background: transparent; border-radius: 12px; padding: 20px; border: 1px solid #3a3a3a; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.card2 h2 { text-align: center; margin-bottom: 15px; font-size: 18px; }
 
 /* =========================== MODAIS (LOGIN E ADMIN) =========================== */
 .modal-overlay { 
@@ -22,7 +24,7 @@ body { background: #2c2c2c; color: #F1F1F1; min-height: 100vh; padding: 20px;dis
 .input-group input[type="color"] { flex: 0.5; height: 40px; border: none; cursor: pointer; background: transparent; }
 
 /* =========================== LISTAS E BOTÕES =========================== */
-.usuario { display: flex; align-items: center; padding: 10px;  border-radius: 8px; margin-bottom: 8px; font-size: 14px; cursor: pointer; }
+.usuario { display: flex; flex-direction: row; align-items: center; padding: 10px;  border-radius: 8px; margin-bottom: 8px; font-size: 14px; cursor: pointer; }
 .cor { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
 
 button { padding: 12px 20px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
@@ -34,4 +36,34 @@ button { padding: 12px 20px; border-radius: 8px; border: none; font-weight: bold
 /* =========================== RESPONSIVIDADE =========================== */
 @media(min-width: 600px) {
     .painel-superior { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+#foraFila {
+    display: flex;          /* Coloca os itens um ao lado do outro */
+    flex-direction: row;    /* Garante que a direção seja linha */
+    flex-wrap: wrap;        /* Se faltar espaço, ele joga para a linha de baixo automaticamente */
+    gap: 15px;              /* Espaço entre os "vetores" */
+    align-items: center;    /* Alinha a cor com o texto verticalmente */
+}
+
+.usuario {
+    display: flex;          /* Faz a cor e o nome ficarem alinhados dentro da div */
+    align-items: center;
+    gap: 8px;               /* Espaço entre a cor e o nome */
+    background: transparent;    /* Opcional: dá um fundo para parecer um "vetor" ou tag */
+    padding: 5px 10px;
+    border-radius: 20px;    /* Deixa arredondado como uma cápsula */
+}
+.centorg{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+#tituloFila{
+    text-align: center;
+}
+.tabs{
+  display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
 }
