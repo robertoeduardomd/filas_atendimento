@@ -36,7 +36,7 @@ async function carregarDados() {
         .from('fila_atual')
         .select('*, colaboradores(nome, cor)')
         .eq('fila_id', filaAtualId)
-        .order('ordem', { ascending: true });
+        .order('ordem', { ascending: false });
 
     if (error) return console.error("Erro ao carregar Fila:", error);
 
