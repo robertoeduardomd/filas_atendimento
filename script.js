@@ -22,6 +22,7 @@ verificarSessaoFantasma();
     carregarListaForaDaFila();
     carregarListaUsuariosParaLogin();
     carregarHistorico();
+    configurarRealtime();
 });
 
 
@@ -596,4 +597,26 @@ async function verificarSessaoFantasma() {
         carregarDados();
         carregarListaForaDaFila();
     }
+}
+function configurarRealtime() {
+    // Escuta mudanças na tabela fila_atual
+    db.channel('schema-db-changes')
+        .on(
+            'postgres_changes',
+            { event: '*', schema: 'public', table: 'fila_atual' },
+            (payload) => {
+                console.log('Mudança na fila detectada!', payload);
+                carregarDados(); // Atualiza a fila
+            }
+        )
+        // Escuta mudanças no histórico
+        .on(
+            'postgres_changes',
+            { event: '*', schema: 'public', table: 'historico' },
+            (payload) => {
+                console.log('Mudança no histórico detectada!', payload);
+                carregarHistorico(); // Atualiza o histórico
+            }
+        )
+        .subscribe();
 }
