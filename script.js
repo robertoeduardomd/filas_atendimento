@@ -222,23 +222,20 @@ function mudarFila(id, nome) {
 function toggleAdmin(){
 
     if(!usuario){
-
         alert("Faça login primeiro.");
-
         return;
 
     }
 
     if(!usuario.administrador){
-
         alert("Você não possui permissão de administrador.");
-
         return;
-
     }
-
-    document.getElementById("modalMenuAdmin").style.display="flex";
-
+   let ndmenuadm = document.getElementById("modalMenuAdmin");
+   ndmenuadm.style.display="flex";
+   ndmenuadm.style.flexDirection="column";
+   ndmenuadm.style.lineHeigth="5px";
+   ndmenuadm.style.justify="space-between";
 }
 
 async function salvarColaborador() {

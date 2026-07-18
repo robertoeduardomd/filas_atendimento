@@ -38,6 +38,10 @@
             <section class="card">
                 <h2>Na fila</h2>
                 <div id="fila"></div>
+                   <div class="acoes">
+            <button id="btnFila" onclick="toggleMinhaPosicao()">Entrar na fila</button>
+           
+        </div>
             </section>
 
         <section class="card">
@@ -50,13 +54,9 @@
             <h2>Fora da Fila</h2>
             <div id="foraFila"></div>
         </section>
-          <div class="acoes">
-            <button id="btnFila" onclick="toggleMinhaPosicao()">Entrar na fila</button>
-           
-        </div>
+       
           <nav class="tabs">
-            <button onclick="mudarFila(1, 'ANEEL')">ANEEL</button>
-            <button onclick="mudarFila(2, 'ANATEL')">ANATEL</button>
+            
              <button id="btnAdmin" onclick="toggleAdmin()">Administrador</button>
         </nav>
 
@@ -87,7 +87,7 @@
 
 <div id="modalMenuAdmin" class="modal-overlay" style="display:none;">
 
-    <div class="card login-card">
+    <div class="login-card">
 
         <h2>Administrador</h2>
 
@@ -112,23 +112,26 @@
 </div>
 
 
-
 <!-- MODAL NOVO COLABORADOR -->
 
 <div id="modalNovoColaborador" class="modal-overlay" style="display:none;">
-    <div class="card login-card">
+    <div class="card ">
         <h2>Novo colaborador</h2>
         <input id="nomeColaborador" type="text" placeholder="Nome">
         <br><br>
         <input id="corColaborador" type="color" value="#3498db">
         <br><br>
-        <button onclick="salvarColaborador()" style="margin-bottom: 10px;">Salvar</button>
+        
+    <div class="ldld">
         <button onclick="fecharModal('modalNovoColaborador')" style="background: #ccc; color: #333;">Cancelar</button>
+        <button onclick="salvarColaborador()" style="margin-bottom: 10px;">Salvar</button>
     </div>
+    </div>
+
 </div>
 
 <div id="modalEditarColaborador" class="modal-overlay" style="display:none;">
-    <div class="card login-card">
+    <div class="card ">
         <h2>Editar Colaborador</h2>
 
         <!-- O onchange avisa o JS para preencher os dados assim que você escolhe um nome -->
@@ -139,39 +142,43 @@
         <input id="nomeEditarColaborador" type="text" placeholder="Nome do colaborador" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: none;">
         
         <input id="corEditarColaborador" type="color" value="#3498db" style="width: 100%; height: 40px; border: none; margin-bottom: 15px; border-radius: 6px;">
+ <div class="ldld">
+     <button onclick="fecharModal('modalEditarColaborador')" style="background: #ccc; color: #333;">Cancelar / Voltar</button>
+     <button onclick="salvarEdicaoColaborador()" style="margin-bottom: 10px; background: #FF9800;">Salvar Alterações</button>
+    </div>
 
-        <button onclick="salvarEdicaoColaborador()" style="margin-bottom: 10px; background: #FF9800;">Salvar Alterações</button>
-        <button onclick="fecharModal('modalEditarColaborador')" style="background: #ccc; color: #333;">Cancelar / Voltar</button>
     </div>
 </div>
 <!-- MODAL REMOVER COLABORADOR -->
 <div id="modalRemoverColaborador" class="modal-overlay" style="display:none;">
-    <div class="card login-card">
+    <div class="card ">
         <h2>Remover Colaborador</h2>
 
         <select id="selectRemoverColaborador" style="width: 100%; padding: 10px; margin-bottom: 15px; color: black; border-radius: 6px;">
             <option value="">Selecione um colaborador...</option>
         </select>
+ <div class="ldld">
+     <button onclick="fecharModal('modalRemoverColaborador')" style="background: #ccc; color: #333;">Cancelar / Voltar</button>
+     <button onclick="abrirConfirmacaoRemocao()" style="margin-bottom: 10px; background: #F44336;">Remover Colaborador</button>
+    </div>
 
         <!-- Este botão não deleta direto, ele chama a confirmação -->
-        <button onclick="abrirConfirmacaoRemocao()" style="margin-bottom: 10px; background: #F44336;">Remover Colaborador</button>
-        <button onclick="fecharModal('modalRemoverColaborador')" style="background: #ccc; color: #333;">Cancelar / Voltar</button>
     </div>
 </div>
 
 <!-- MODAL DE CONFIRMAÇÃO (TEM CERTEZA?) -->
 <div id="modalConfirmarRemocao" class="modal-overlay" style="display:none; z-index: 9999;">
-    <div class="card login-card" style="border: 2px solid #F44336;">
+    <div class="card" style="border: 2px solid #F44336;">
         <h2 style="color: #F44336;">Tem certeza?</h2>
         
         <p id="textoConfirmacaoRemocao" style="margin-bottom: 20px; text-align: center;">
             Você deseja realmente excluir este colaborador?
         </p>
+ <div class="ldld">
+     <button onclick="cancelarConfirmacaoRemocao()" style="background: #ccc; color: #333;">Cancelar / Voltar</button>
+     <button onclick="executarRemocao()" style="margin-bottom: 10px; background: #F44336;">Sim, Remover Definitivamente</button>
+    </div>
 
-        <button onclick="executarRemocao()" style="margin-bottom: 10px; background: #F44336;">Sim, Remover Definitivamente</button>
-        
-        <!-- O botão de cancelar aqui volta para a tela anterior em vez de fechar tudo -->
-        <button onclick="cancelarConfirmacaoRemocao()" style="background: #ccc; color: #333;">Cancelar / Voltar</button>
     </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

@@ -5,7 +5,7 @@ body { background: #2c2c2c; color: #F1F1F1; min-height: 100vh; padding: 20px;dis
 /* =========================== GRID PRINCIPAL =========================== */
 .container { max-width: 800px; margin: 0 auto; display: grid; gap: 20px; }
 
-.card { background: #2A2D31; border-radius: 12px; padding: 20px; border: 1px solid #3a3a3a; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.card {display:flex; justify-content: space-between; flex-direction: column; background: #2A2D31; border-radius: 12px; padding: 20px; border: 1px solid #3a3a3a; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .card h2 { text-align: center; margin-bottom: 15px; font-size: 18px; }
 .card2 { background: transparent; border-radius: 12px; padding: 20px; border: 1px solid #3a3a3a; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .card2 h2 { text-align: center; margin-bottom: 15px; font-size: 18px; }
@@ -66,4 +66,22 @@ justify-content:space-between;
 align-items:center;
 justify-content:center;
 gap:10px;
+line-height: 5px;
+}
+.login-card{
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    background:rgb(112, 0, 0);
+     border-radius: 12px; 
+     padding: 20px; 
+     border: 1px solid #3a3a3a; 
+     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.ldld{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-direction: row;
+    gap: 10px;
 }
