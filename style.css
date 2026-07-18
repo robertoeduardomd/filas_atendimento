@@ -1,6 +1,6 @@
 /* =========================== GERAL =========================== */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Tahoma, sans-serif; }
-body { background: #202123; color: #F1F1F1; min-height: 100vh; padding: 20px; }
+body { background: #2c2c2c; color: #F1F1F1; min-height: 100vh; padding: 20px;display:flex; align-items :center; justify-content: center; }
 
 /* =========================== GRID PRINCIPAL =========================== */
 .container { max-width: 800px; margin: 0 auto; display: grid; gap: 20px; }
@@ -28,7 +28,9 @@ body { background: #202123; color: #F1F1F1; min-height: 100vh; padding: 20px; }
 button { padding: 12px 20px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
 .btn-primary { background: #2979FF; color: white; width: 100%; }
 .btn-success { background: #00C853; color: white; }
-
+.acoes{
+    text-align: center;
+}
 /* =========================== RESPONSIVIDADE =========================== */
 @media(min-width: 600px) {
     .painel-superior { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }

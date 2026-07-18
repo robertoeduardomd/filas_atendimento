@@ -54,7 +54,7 @@ async function carregarDados() {
     const btnHeader = document.getElementById('btnLoginHeader');
     if (btnHeader) {
         if (usuario) {
-            btnHeader.innerHTML = `<span>${usuario.nome}</span> <button onclick="logout()" style="margin-left:10px; background:#f44336; border:none; color:white; padding:2px 8px; cursor:pointer;">Sair</button>`;
+            btnHeader.innerHTML = `<span>${usuario.nome}</span> <button onclick="logout()" style="margin-left:10px; background:#f44336; border:none; color:white; padding:2px 8px; cursor:pointer;">Logout</button>`;
             btnHeader.onclick = null;
         } else {
             btnHeader.innerText = "Entrar / Login";
@@ -559,14 +559,15 @@ async function carregarHistorico() {
     container.innerHTML = historico.map(item => {
         // Formata a data do Supabase para o padrão Brasileiro (ex: 17/07 20:33)
         const dataFormatada = new Date(item.created_at).toLocaleString('pt-BR', {
-            day: '2-digit', 
-            month: '2-digit', 
+           
             hour: '2-digit', 
-            minute: '2-digit'
+            minute: '2-digit',
+             day: '2-digit', 
+            month: '2-digit'
         });
         
         // Define as cores e os textos da ação
-        const acaoTexto = item.acao === 'entrou' ? 'entrou na fila' : 'saiu da fila';
+        const acaoTexto = item.acao === 'entrou' ? 'entrou na fila ' : 'saiu da fila ';
         const corAcao = item.acao === 'entrou' ? '#00C853' : '#F44336'; 
 
         return `
@@ -576,8 +577,8 @@ async function carregarHistorico() {
                     <strong style="color: #fff;">${item.colaboradores?.nome || 'Desconhecido'}</strong> 
                     <span style="color: ${corAcao}; font-size: 0.9em; margin-left: 5px;">${acaoTexto}</span>
                 </div>
-                <div style="color: #888; font-size: 0.85em;">
-                    ${dataFormatada}
+                <div style="color: #f3f707; font-size: 0.85em;">
+                     ${dataFormatada}
                 </div>
             </div>
         `;
