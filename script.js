@@ -65,8 +65,10 @@ async function carregarDados() {
 
 function renderizarFila(dados) {
     const container = document.getElementById('fila');
+    // Força a limpeza absoluta
     container.innerHTML = ''; 
     
+    // Agora renderiza
     container.innerHTML = dados.map((item, index) => `
         <div class="usuario">
             <span style="margin-right: 10px; color: #888; font-weight: bold;">${index + 1}º</span>
@@ -84,6 +86,7 @@ async function carregarListaForaDaFila() {
     const foraDaFila = (todos || []).filter(c => !idsNaFila.includes(c.id));
     
     const container = document.getElementById('foraFila');
+    // Limpeza absoluta antes de qualquer coisa
     container.innerHTML = ''; 
     
     container.innerHTML = foraDaFila.map(c => `
@@ -168,6 +171,7 @@ async function entrarNaFila() {
 
     if (error) return alert("Erro ao entrar: " + error.message);
 
+    
     // 3. Histórico e Atualização Visual IMEDIATA
     registrarHistorico('entrou'); 
     await carregarDados();
@@ -598,25 +602,34 @@ async function verificarSessaoFantasma() {
         carregarListaForaDaFila();
     }
 }
+
 function configurarRealtime() {
-    // Escuta mudanças na tabela fila_atual
+    // Usamos um único canal para todas as escutas
     db.channel('schema-db-changes')
         .on(
             'postgres_changes',
             { event: '*', schema: 'public', table: 'fila_atual' },
             (payload) => {
                 console.log('Mudança na fila detectada!', payload);
-                carregarDados(); // Atualiza a fila
+                // Atualiza tudo para garantir que "fora da fila" e "na fila" fiquem sincronizados
+                carregarDados(); 
+                carregarListaForaDaFila(); 
             }
         )
-        // Escuta mudanças no histórico
         .on(
             'postgres_changes',
             { event: '*', schema: 'public', table: 'historico' },
             (payload) => {
                 console.log('Mudança no histórico detectada!', payload);
-                carregarHistorico(); // Atualiza o histórico
+                carregarHistorico();
             }
         )
         .subscribe();
+}
+
+async function atualizarCenarioCompleto() {
+    // Garante que ambos os lados da moeda sejam buscados e renderizados
+    await carregarDados(); // Atualiza a Fila (Na fila)
+    await carregarListaForaDaFila(); // Atualiza a lista (Fora da fila)
+    await carregarHistorico(); // Atualiza o histórico
 }
