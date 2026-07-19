@@ -555,13 +555,16 @@ async function carregarHistorico() {
     // Monta a lista visualmente
     container.innerHTML = historico.map(item => {
         // Formata a data do Supabase para o padrão Brasileiro (ex: 17/07 20:33)
-        const dataFormatada = new Date(item.created_at).toLocaleString('pt-BR', {
-           
-            hour: '2-digit', 
-            minute: '2-digit',
-             day: '2-digit', 
-            month: '2-digit'
-        });
+      // Dentro do seu .map(item => { ...
+const data = new Date(item.created_at);
+
+// Extrai os valores formatando com '0' à esquerda se necessário
+const hora = String(data.getHours()).padStart(2, '0');
+const minuto = String(data.getMinutes()).padStart(2, '0');
+const dia = String(data.getDate()).padStart(2, '0');
+const mes = String(data.getMonth() + 1).padStart(2, '0'); // O mês começa em 0 no JS
+
+const dataFormatada = `${hora}:${minuto} - ${dia}/${mes}`;
         
         // Define as cores e os textos da ação
         const acaoTexto = item.acao === 'entrou' ? 'entrou na fila ' : 'saiu da fila ';
