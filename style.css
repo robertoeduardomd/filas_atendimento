@@ -1,6 +1,6 @@
 /* =========================== GERAL =========================== */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Tahoma, sans-serif; }
-body { background: rgb(11, 0, 41); color: #F1F1F1; min-height: 100vh; padding: 20px;display:flex; align-items :center; justify-content: center; }
+body { background: rgb(0, 0, 0); color: #F1F1F1; min-height: 100vh; padding: 20px;display:flex; align-items :center; justify-content: center; }
 
 /* =========================== GRID PRINCIPAL =========================== */
 .container { max-width: 800px; margin: 0 auto; display: grid; gap: 20px; }

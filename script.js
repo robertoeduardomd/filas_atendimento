@@ -564,7 +564,7 @@ const minuto = String(data.getMinutes()).padStart(2, '0');
 const dia = String(data.getDate()).padStart(2, '0');
 const mes = String(data.getMonth() + 1).padStart(2, '0'); // O mês começa em 0 no JS
 
-const dataFormatada = `${hora}:${minuto} - ${dia}/${mes}`;
+const dataFormatada = `   ${hora}:${minuto} - ${dia}/${mes}`;
         
         // Define as cores e os textos da ação
         const acaoTexto = item.acao === 'entrou' ? 'entrou na fila ' : 'saiu da fila ';
