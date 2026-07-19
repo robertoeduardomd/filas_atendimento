@@ -538,7 +538,7 @@ async function carregarHistorico() {
         .select('*, colaboradores(nome, cor)')
         .eq('fila_id', filaAtualId)
         .order('created_at', { ascending: false })
-        .limit(8);
+        .limit(5);
 
     if (error) {
         console.error("Erro ao carregar histórico:", error.message);
