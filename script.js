@@ -567,7 +567,7 @@ const mes = String(data.getMonth() + 1).padStart(2, '0'); // O mês começa em 0
 const dataFormatada = `   ${hora}:${minuto} - ${dia}/${mes}`;
         
         // Define as cores e os textos da ação
-        const acaoTexto = item.acao === 'entrou' ? 'entrou na fila ' : 'saiu da fila ';
+        const acaoTexto = item.acao === 'entrou' ? 'entrou na fila às ' : 'saiu da fila às ';
         const corAcao = item.acao === 'entrou' ? '#00C853' : '#F44336'; 
 
         return `
