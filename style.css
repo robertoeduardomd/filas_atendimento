@@ -36,8 +36,7 @@ body {
   padding: 20px;
   border: 1px solid #003f13;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  flex: 1; /* Faz as 3 filas dividirem o espaço lado a lado por igual */
-  min-width: 220px; /* Garante que não fiquem finas demais */
+
 }
 
 .card h2 {
@@ -53,6 +52,10 @@ body {
   padding: 20px;
   border: 1px solid #500101;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
 }
 
 .card2 h2 {
@@ -147,7 +150,7 @@ body {
 }
 
 button {
-  padding: 12px 20px;
+  padding: 6px 10px;
   border-radius: 8px;
   border: none;
   font-weight: bold;
@@ -200,18 +203,19 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  line-height: 5px;
+  line-height: 1px;
 }
 
 .login-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 10px;
   background: rgb(112, 0, 0);
   border-radius: 12px;
   padding: 20px;
   border: 1px solid #3a3a3a;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  min-height: 200px;
 }
 
 .ldld {
